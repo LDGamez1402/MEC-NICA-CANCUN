@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MECÂNICA CANCUN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .categoria {
+            width: 18%; /* Ajustado para 5 colunas */
+            margin: 1%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left; /* Alinhamento à esquerda dentro da categoria */
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #resultado {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        #multiplicador-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>MECÂNICA CANCUN</h1>
+
+<div class="container">
+    <div class="categoria">
+        <h2>Motor</h2>
+        <label><input type="checkbox" value="7700" onchange="calcularTotal()"> Motor Nível 1 - R$ 7.700,00</label>
+        <label><input type="checkbox" value="10120" onchange="calcularTotal()"> Motor Nível 2 - R$ 10.120,00</label>
+        <label><input type="checkbox" value="11000" onchange="calcularTotal()"> Motor Nível 3 - R$ 11.000,00</label>
+        <label><input type="checkbox" value="14500" onchange="calcularTotal()"> Motor Nível 4 - R$ 14.500,00</label>
+        <label><input type="checkbox" value="17500" onchange="calcularTotal()"> Motor Nível 5 - R$ 17.500,00</label>
+    </div>
+
+    <div class="categoria">
+        <h2>Freio</h2>
+        <label><input type="checkbox" value="7700" onchange="calcularTotal()"> Freio Nível 1 - R$ 7.700,00</label>
+        <label><input type="checkbox" value="10120" onchange="calcularTotal()"> Freio Nível 2 - R$ 10.120,00</label>
+        <label><input type="checkbox" value="11000" onchange="calcularTotal()"> Freio Nível 3 - R$ 11.000,00</label>
+        <label><input type="checkbox" value="17500" onchange="calcularTotal()"> Freio Nível 4 - R$ 17.500,00</label>
+    </div>
+
+    <div class="categoria">
+        <h2>Transmissão</h2>
+        <label><input type="checkbox" value="7700" onchange="calcularTotal()"> Transmissão Nível 1 - R$ 7.700,00</label>
+        <label><input type="checkbox" value="11000" onchange="calcularTotal()"> Transmissão Nível 2 - R$ 11.000,00</label>
+        <label><input type="checkbox" value="14500" onchange="calcularTotal()"> Transmissão Nível 3 - R$ 14.500,00</label>
+        <label><input type="checkbox" value="17500" onchange="calcularTotal()"> Transmissão Nível 4 - R$ 17.500,00</label>
+    </div>
+
+    <div class="categoria">
+        <h2>Turbo</h2>
+        <label><input type="checkbox" value="6400" onchange="calcularTotal()"> Turbo - R$ 6.400,00</label>
+    </div>
+
+    <div class="categoria">
+        <h2>Suspensão</h2>
+        <label><input type="checkbox" value="7700" onchange="calcularTotal()"> Suspensão Nível 1 - R$ 7.700,00</label>
+        <label><input type="checkbox" value="10120" onchange="calcularTotal()"> Suspensão Nível 2 - R$ 10.120,00</label>
+        <label><input type="checkbox" value="11000" onchange="calcularTotal()"> Suspensão Nível 3 - R$ 11.000,00</label>
+        <label><input type="checkbox" value="14500" onchange="calcularTotal()"> Suspensão Nível 4 - R$ 14.500,00</label>
+        <label><input type="checkbox" value="17500" onchange="calcularTotal()"> Suspensão Nível 5 - R$ 17.500,00</label>
+    </div>
+
+    <div class="categoria">
+        <h2>Blindagem</h2>
+        <label><input type="checkbox" value="10280" onchange="calcularTotal()"> Blindagem Nível 1 - R$ 10.280,00</label>
+        <label><input type="checkbox" value="11870" onchange="calcularTotal()"> Blindagem Nível 2 - R$ 11.870,00</label>
+        <label><input type="checkbox" value="16960" onchange="calcularTotal()"> Blindagem Nível 3 - R$ 16.960,00</label>
+        <label><input type="checkbox" value="22500" onchange="calcularTotal()"> Blindagem Nível 4 - R$ 22.500,00</label>
+        <label><input type="checkbox" value="27510" onchange="calcularTotal()"> Blindagem Nível 5 - R$ 27.510,00</label>
+    </div>
+
+    <div class="categoria">
+        <h2>Estética</h2>
+        <label><input type="checkbox" value="3800" onchange="calcularTotal()"> Roda - R$ 3.800,00</label>
+        <label><input type="checkbox" value="2250" onchange="calcularTotal()"> Roda Custom - R$ 2.250,00</label>
+        <label><input type="checkbox" value="1950" onchange="calcularTotal()"> Fumaça Roda - R$ 1.950,00</label>
+        <label><input type="checkbox" value="3800" onchange="calcularTotal()"> Neon - R$ 3.800,00</label>
+        <label><input type="checkbox" value="1950" onchange="calcularTotal()"> Cor Neon - R$ 1.950,00</label>
+        <label><input type="checkbox" value="1600" onchange="calcularTotal()"> Xenon - R$ 1.600,00</label>
+        <label><input type="checkbox" value="1950" onchange="calcularTotal()"> Cor Xenon - R$ 1.950,00</label>
+        <label><input type="checkbox" value="1950" onchange="calcularTotal()"> Insufilm - R$ 1.950,00</label>
+        <label><input type="checkbox" value="1450" onchange="calcularTotal()"> Placa - R$ 1.450,00</label>
+        <label><input type="checkbox" value="950" onchange="calcularTotal()"> Extra - R$ 950,00</label>
+    </div>
+
+    <div class="categoria">
+        <h2>Pintura</h2>
+        <label><input type="checkbox" value="2100" onchange="calcularTotal()"> Cor Primária - R$ 2.100,00</label>
+        <label><input type="checkbox" value="2100" onchange="calcularTotal()"> Cor Secundária - R$ 2.100,00</label>
+        <label><input type="checkbox" value="2100" onchange="calcularTotal()"> Perolado - R$ 2.100,00</label>
+        <label><input type="checkbox" value="2100" onchange="calcularTotal()"> Cor Roda - R$ 2.100,00</label>
+    </div>
+</div>
+
+<div id="resultado">
+    Total: R$ <span id="total">0,00</span>
+</div>
+
+<div id="multiplicador-container">
+    <label>Extras - Parachoques, teto e afins:</label>
+    <input type="number" id="multiplicador" value="0" onchange="calcularTotal()" placeholder="Digite o valor" />
+</div>
+
+<button onclick="resetar()">Resetar Seleções</button>
+
+<script>
+function calcularTotal() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    let total = 0;
+
+    checkboxes.forEach(checkbox => {
+        total += parseFloat(checkbox.value);
+    });
+
+    const multiplicadorValue = parseFloat(document.getElementById('multiplicador').value) || 0;
+    total += multiplicadorValue * 2700;
+
+    document.getElementById('total').textContent = total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function resetar() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    document.getElementById('multiplicador').value = 0;
+    calcularTotal(); // Atualiza o total após resetar
+}
+</script>
+
+</body>
+</html>
